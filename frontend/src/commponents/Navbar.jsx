@@ -50,13 +50,7 @@ const Navbar = () => {
                             <span className="absolute bottom-0 left-0 w-0 h-1 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
                         </Link>
                         <div className="flex items-center space-x-4">
-                            <Link 
-                                to="/adding" 
-                                className="bg-yellow-500 text-gray-900 font-bold px-4 lg:px-3 py-1 lg:py-1 rounded-lg hover:bg-yellow-400 transform hover:scale-105 transition duration-300 shadow-lg hover:shadow-yellow-500/25 border-2 border-yellow-500 text-sm lg:text-base"
-                            >
-                                Adding
-                            </Link>
-                            <Link 
+                                <Link 
                                 to="/" 
                                 className="bg-yellow-500 text-gray-900 font-bold px-4 lg:px-3 py-1 lg:py-1 rounded-lg hover:bg-yellow-400 transform hover:scale-105 transition duration-300 shadow-lg hover:shadow-yellow-500/25 border-2 border-yellow-500 text-sm lg:text-base"
                             >
@@ -108,13 +102,7 @@ const Navbar = () => {
                                 <div className="ml-auto w-2 h-2 bg-yellow-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             </Link>
                             <div className="flex flex-col space-y-3 pt-2 border-t border-white/20">
-                                <Link 
-                                    to="/adding" 
-                                    onClick={() => setIsMenuOpen(false)}
-                                    className="bg-yellow-500 text-gray-900 font-bold px-6 py-3 rounded-xl hover:bg-yellow-400 transform hover:scale-105 transition duration-300 shadow-lg text-center border-2 border-yellow-500"
-                                >
-                                    Adding
-                                </Link>
+                            
                                 <Link 
                                     to="/" 
                                     onClick={() => setIsMenuOpen(false)}

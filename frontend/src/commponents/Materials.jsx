@@ -105,9 +105,9 @@ const Material = () => {
     if (loading) {
         return (
             <><Navbar />
-                <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 flex items-center justify-center">
+                <div className="min-h-screen bg-gradient-to-br from-slate-100 via-white to-blue-100 flex items-center justify-center">
                     <div className="text-center">
-                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-500 mx-auto"></div>
+                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
                         <p className="mt-4 text-gray-600">Loading materials...</p>
                     </div>
                 </div>
@@ -118,7 +118,7 @@ const Material = () => {
 
     return (
         <><Navbar />
-            <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-8 px-4 sm:px-6 lg:px-8">
+            <div className="min-h-screen bg-gradient-to-br from-slate-100 via-white to-blue-100 py-8 px-4 sm:px-6 lg:px-8">
                 {/* Header Section */}
                 <div className="max-w-7xl mx-auto">
                     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
@@ -138,7 +138,7 @@ const Material = () => {
                                 id="category-filter"
                                 value={categoryFilter}
                                 onChange={(e) => setCategoryFilter(e.target.value)}
-                                className="bg-white border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                                className="bg-white border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             >
                                 {categories.map((category,id) => (
                                     <option key={id} value={category}>
@@ -154,11 +154,11 @@ const Material = () => {
                         <div className="overflow-x-auto">
                             <table className="w-full">
                                 <thead>
-                                    <tr className="bg-amber-100 border-gray-200">
-                                        <th className="py-4 px-6 text-left font-semibold text-gray-700 font-serif">Material Name</th>
-                                        <th className="py-4 px-6 text-left font-semibold text-gray-700 font-serif">Category</th>
-                                        <th className="py-4 px-6 text-left font-semibold text-gray-700 font-serif">Available Quantity</th>
-                                        <th className="py-4 px-6 text-left font-semibold text-gray-700 font-serif">Status</th>
+                                    <tr className="bg-blue-50 border-gray-200">
+                                        <th className="py-4 px-6 text-left font-semibold text-gray-700">Material Name</th>
+                                        <th className="py-4 px-6 text-left font-semibold text-gray-700">Category</th>
+                                        <th className="py-4 px-6 text-left font-semibold text-gray-700">Available Quantity</th>
+                                        <th className="py-4 px-6 text-left font-semibold text-gray-700">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -225,7 +225,7 @@ const Material = () => {
                                     {categoryFilter !== "All" && (
                                         <button
                                             onClick={() => setCategoryFilter("All")}
-                                            className="text-yellow-600 hover:text-yellow-700 font-medium"
+                                            className="text-blue-600 hover:text-blue-700 font-medium"
                                         >
                                             View all categories
                                         </button>
@@ -249,7 +249,7 @@ const Material = () => {
                                         <div 
                                             key={id} 
                                             className={`bg-white rounded-xl shadow-lg p-4 border border-gray-200 cursor-pointer transition-all duration-200 ${
-                                                categoryFilter === category ? 'ring-2 ring-yellow-500' : 'hover:shadow-md'
+                                                categoryFilter === category ? 'ring-2 ring-blue-500' : 'hover:shadow-md'
                                             }`}
                                             onClick={() => setCategoryFilter(category)}
                                         >

@@ -29,6 +29,6 @@ export const login=async (req,res)=>{
     }
     catch (error) {
         console.log('something error to login : ',error.message)
-        return res.status(500).json({ msg: 'Internal server error' });
+        return res.status(500).json({ msg: 'give valid number' });
     }
 }

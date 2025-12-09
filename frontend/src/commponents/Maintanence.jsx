@@ -670,7 +670,7 @@ const Maintenance = () => {
   // Main return with conditional rendering
   if (selectedEntry && viewMode) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-8 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gradient-to-br from-slate-100 via-white to-blue-100 py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <button
             onClick={handleBackToList}
@@ -697,7 +697,7 @@ const Maintenance = () => {
 
   return (
     <><Navbar/>
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-8 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gradient-to-br from-slate-100 via-white to-blue-100 py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header Section */}
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 gap-6">
@@ -707,18 +707,21 @@ const Maintenance = () => {
             </div>
             <button 
               onClick={handleUpdateProcess}
-              className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white font-bold py-4 px-8 rounded-2xl hover:from-yellow-600 hover:to-yellow-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-yellow-500/25 border border-yellow-500 text-lg"
+              className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold py-4 px-8 rounded-2xl hover:from-blue-700 hover:to-indigo-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-blue-500/25 border border-blue-500 text-lg flex items-center gap-2"
             >
-              📝 Update Process
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+              </svg>
+              Update Process
             </button>
           </div>
 
           {/* Current Date Indicator */}
-          <div className="bg-amber-100 border border-amber-300 rounded-2xl p-4 mb-6">
-            <p className="text-amber-800 font-semibold text-lg">
-              📅 Today's Date: <span className="text-amber-600">{getCurrentDate()}</span>
+          <div className="bg-blue-50 border border-blue-200 rounded-2xl p-4 mb-6">
+            <p className="text-blue-800 font-semibold text-lg">
+              📅 Today's Date: <span className="text-blue-600">{getCurrentDate()}</span>
             </p>
-            <p className="text-amber-600 text-sm mt-1">
+            <p className="text-blue-600 text-sm mt-1">
               You can only edit entries from today's date
             </p>
           </div>
@@ -735,13 +738,13 @@ const Maintenance = () => {
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="bg-amber-100 border-gray-200">
-                    <th className="py-4 px-6 text-left font-semibold text-gray-700 font-serif">Date</th>
-                    <th className="py-4 px-6 text-left font-semibold text-gray-700 font-serif">Updates</th>
-                    <th className="py-4 px-6 text-left font-semibold text-gray-700 font-serif">Materials</th>
-                    <th className="py-4 px-6 text-left font-semibold text-gray-700 font-serif">Labour</th>
-                    <th className="py-4 px-6 text-left font-semibold text-gray-700 font-serif">Stocks</th>
-                    <th className="py-4 px-6 text-left font-semibold text-gray-700 font-serif">Actions</th>
+                  <tr className="bg-blue-50 border-gray-200">
+                    <th className="py-4 px-6 text-left font-semibold text-gray-700">Date</th>
+                    <th className="py-4 px-6 text-left font-semibold text-gray-700">Updates</th>
+                    <th className="py-4 px-6 text-left font-semibold text-gray-700">Materials</th>
+                    <th className="py-4 px-6 text-left font-semibold text-gray-700">Labour</th>
+                    <th className="py-4 px-6 text-left font-semibold text-gray-700">Stocks</th>
+                    <th className="py-4 px-6 text-left font-semibold text-gray-700">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -761,42 +764,57 @@ const Maintenance = () => {
                           <p className="text-gray-900 font-semibold truncate">{entry.updates}</p>
                           <button 
                             onClick={() => handleViewDetails(entry, 'updates')}
-                            className="text-blue-600 hover:text-blue-700 text-sm font-medium mt-1 transition-colors duration-200"
+                            className="text-blue-600 hover:text-blue-700 text-sm font-medium mt-1 transition-colors duration-200 flex items-center gap-1"
                           >
-                            View Details →
+                            View Details
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
                           </button>
                         </div>
                       </td>
                       <td className="py-4 px-6">
                         <button 
                           onClick={() => handleViewDetails(entry, 'materials')}
-                          className="text-blue-600 hover:text-blue-700 font-semibold transition-colors duration-200"
+                          className="text-blue-600 hover:text-blue-700 font-semibold transition-colors duration-200 flex items-center gap-1"
                         >
-                          View Materials →
+                          View Materials
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
                         </button>
                       </td>
                       <td className="py-4 px-6">
                         <button 
                           onClick={() => handleViewDetails(entry, 'labour')}
-                          className="text-green-600 hover:text-green-700 font-semibold transition-colors duration-200"
+                          className="text-green-600 hover:text-green-700 font-semibold transition-colors duration-200 flex items-center gap-1"
                         >
-                          View Labour →
+                          View Labour
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
                         </button>
                       </td>
                       <td className="py-4 px-6">
                         <button 
                           onClick={() => handleViewDetails(entry, 'stocks')}
-                          className="text-red-600 hover:text-red-700 font-semibold transition-colors duration-200"
+                          className="text-red-600 hover:text-red-700 font-semibold transition-colors duration-200 flex items-center gap-1"
                         >
-                          View Stocks →
+                          View Stocks
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
                         </button>
                       </td>
                       <td className="py-4 px-6">
                         {isToday(entry.date) ? (
                           <button
                             onClick={() => handleEdit(entry)}
-                            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-blue-500/25"
+                            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-blue-500/25 flex items-center gap-2"
                           >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                            </svg>
                             Edit
                           </button>
                         ) : (
@@ -827,18 +845,18 @@ const Maintenance = () => {
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
             {/* Header */}
-            <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 px-6 py-4 rounded-t-2xl">
+            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-4 rounded-t-2xl">
               <h2 className="text-2xl font-bold text-white font-serif">
                 {editingId ? 'Edit Today\'s Maintenance' : 'Update Maintenance'} - Step {currentStep}/4
               </h2>
-              <p className="text-yellow-100 text-sm mt-1">
+              <p className="text-blue-100 text-sm mt-1">
                 {currentStep === 1 && 'Basic work updates'}
                 {currentStep === 2 && 'Materials usage'}
                 {currentStep === 3 && 'Labour details'}
                 {currentStep === 4 && 'Review and submit'}
               </p>
               {editingDate && (
-                <p className="text-yellow-200 text-sm mt-2">
+                <p className="text-blue-200 text-sm mt-2">
                   Editing entry for: {editingDate}
                 </p>
               )}
@@ -858,7 +876,7 @@ const Maintenance = () => {
                       onChange={(e) => setUpdateForm(prev => ({ ...prev, updates: e.target.value }))}
                       placeholder="Describe the work completed today..."
                       rows="4"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-200 resize-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
                     />
                   </div>
                   
@@ -885,7 +903,7 @@ const Maintenance = () => {
                       </div>
                     ) : (
                       <div 
-                        className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer hover:border-yellow-400 hover:bg-amber-50 transition-all duration-200"
+                        className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer hover:border-blue-400 hover:bg-blue-50 transition-all duration-200"
                         onClick={() => fileInputRef.current?.click()}
                       >
                         <div className="text-4xl mb-2 text-gray-400">📷</div>
@@ -914,9 +932,12 @@ const Maintenance = () => {
                     <button
                       type="button"
                       onClick={addMaterialField}
-                      className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition-all duration-200 font-semibold"
+                      className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-all duration-200 font-semibold flex items-center gap-2"
                     >
-                      + Add Material
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                      </svg>
+                      Add Material
                     </button>
                   </div>
                   <div className="space-y-4">
@@ -927,21 +948,21 @@ const Maintenance = () => {
                           value={material.name}
                           onChange={(e) => handleMaterialChange(index, 'name', e.target.value)}
                           placeholder="Material name"
-                          className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-200"
+                          className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                         />
                         <input
                           type="number"
                           value={material.quantity}
                           onChange={(e) => handleMaterialChange(index, 'quantity', e.target.value)}
                           placeholder="Qty"
-                          className="w-24 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-200"
+                          className="w-24 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                         />
                         <input
                           type="text"
                           value={material.unit}
                           onChange={(e) => handleMaterialChange(index, 'unit', e.target.value)}
                           placeholder="Unit"
-                          className="w-24 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-200"
+                          className="w-24 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                         />
                         {updateForm.materialsUsed.length > 1 && (
                           <button
@@ -975,7 +996,7 @@ const Maintenance = () => {
                       <select 
                         value={selectedLabour}
                         onChange={handleLabourSelect}
-                        className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                        className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                       >
                         <option value="">Select Labour</option>
                         {labourdata.map((lab) => (
@@ -987,9 +1008,12 @@ const Maintenance = () => {
                       <button
                         type="button"
                         onClick={addLabourField}
-                        className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition-all duration-200 font-semibold"
+                        className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-all duration-200 font-semibold flex items-center gap-2"
                       >
-                        + Add Labour
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                        </svg>
+                        Add Labour
                       </button>
                     </div>
                   </div>
@@ -1002,28 +1026,28 @@ const Maintenance = () => {
                             value={labour.name}
                             onChange={(e) => handleLabourChange(index, 'name', e.target.value)}
                             placeholder="Name"
-                            className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                            className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                           />
                           <input
                             type="text"
                             value={labour.role}
                             onChange={(e) => handleLabourChange(index, 'role', e.target.value)}
                             placeholder="Role"
-                            className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                            className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                           />
                           <input
                             type="number"
                             value={labour.salary}
                             onChange={(e) => handleLabourChange(index, 'salary', e.target.value)}
                             placeholder="Salary"
-                            className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                            className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                           />
                           <div className="flex items-center space-x-2">
                             <input
                               type="checkbox"
                               checked={labour.present}
                               onChange={(e) => handleLabourChange(index, 'present', e.target.checked)}
-                              className="w-4 h-4 text-yellow-600 bg-gray-100 border-gray-300 rounded focus:ring-yellow-500"
+                              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
                             />
                             <span className="text-sm text-gray-700">Present</span>
                           </div>
@@ -1053,9 +1077,9 @@ const Maintenance = () => {
               {/* Step 4: Review */}
               {currentStep === 4 && (
                 <div className="space-y-6">
-                  <div className="bg-amber-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-amber-800 mb-2">Review Your Entry</h3>
-                    <p className="text-amber-700"><strong>Date:</strong> {editingDate || getCurrentDate()}</p>
+                  <div className="bg-blue-50 p-4 rounded-lg">
+                    <h3 className="text-lg font-semibold text-blue-800 mb-2">Review Your Entry</h3>
+                    <p className="text-blue-700"><strong>Date:</strong> {editingDate || getCurrentDate()}</p>
                   </div>
 
                   <div className="space-y-4">
@@ -1100,12 +1124,12 @@ const Maintenance = () => {
                       </div>
                     </div>
 
-                    <div className="bg-yellow-50 p-3 rounded">
-                      <h4 className="font-semibold text-yellow-700 mb-2">Stock Impact:</h4>
-                      <p className="text-yellow-700 text-sm">
+                    <div className="bg-blue-50 p-3 rounded">
+                      <h4 className="font-semibold text-blue-700 mb-2">Stock Impact:</h4>
+                      <p className="text-blue-700 text-sm">
                         The following materials will be deducted from your stock inventory:
                       </p>
-                      <ul className="text-yellow-700 text-sm mt-2 list-disc list-inside">
+                      <ul className="text-blue-700 text-sm mt-2 list-disc list-inside">
                         {updateForm.materialsUsed.filter(m => m.name && m.quantity).map((material, index) => (
                           <li key={index}>
                             {material.quantity} {material.unit} of {material.name}
@@ -1124,9 +1148,12 @@ const Maintenance = () => {
                 {currentStep > 1 && (
                   <button
                     onClick={() => setCurrentStep(currentStep - 1)}
-                    className="px-6 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-100 transition-all duration-200"
+                    className="px-6 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-100 transition-all duration-200 flex items-center gap-2"
                   >
-                    ← Previous
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                    Previous
                   </button>
                 )}
               </div>
@@ -1146,15 +1173,21 @@ const Maintenance = () => {
                       currentStep === 2 ? handleStep2Submit :
                       handleStep3Submit
                     }
-                    className="px-6 py-2 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white font-medium rounded-lg hover:from-yellow-600 hover:to-yellow-700 transform hover:scale-105 transition-all duration-200 shadow-lg"
+                    className="px-6 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium rounded-lg hover:from-blue-700 hover:to-indigo-700 transform hover:scale-105 transition-all duration-200 shadow-lg flex items-center gap-2"
                   >
-                    Next →
+                    Next
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
                   </button>
                 ) : (
                   <button
                     onClick={handleFinalSubmit}
-                    className="px-6 py-2 bg-gradient-to-r from-green-500 to-green-600 text-white font-medium rounded-lg hover:from-green-600 hover:to-green-700 transform hover:scale-105 transition-all duration-200 shadow-lg"
+                    className="px-6 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-medium rounded-lg hover:from-green-600 hover:to-emerald-700 transform hover:scale-105 transition-all duration-200 shadow-lg flex items-center gap-2"
                   >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
                     {editingId ? 'Update Entry' : 'Add Entry'}
                   </button>
                 )}
@@ -1167,5 +1200,4 @@ const Maintenance = () => {
     </>
   );
 };
-
 export default Maintenance;

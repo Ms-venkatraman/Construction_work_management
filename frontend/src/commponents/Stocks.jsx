@@ -444,7 +444,7 @@ const Stocks = () => {
 
   return (
     <><Navbar/>
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-8 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gradient-to-br from-slate-100 via-white to-blue-100 py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header Section */}
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
@@ -459,7 +459,7 @@ const Stocks = () => {
             </div>
             <button 
               onClick={handeladdstocks}
-              className="bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-3 px-6 rounded-xl hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-blue-500/25 border border-blue-500 whitespace-nowrap flex items-center gap-2"
+              className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold py-3 px-6 rounded-xl hover:from-blue-700 hover:to-indigo-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-blue-500/25 border border-blue-500 whitespace-nowrap flex items-center gap-2"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -527,7 +527,7 @@ const Stocks = () => {
                         <div className="absolute top-3 right-3 flex space-x-2">
                           <button 
                             onClick={() => handleEdit(material)}
-                            className="bg-white/90 backdrop-blur-sm text-green-600 p-2 rounded-lg hover:bg-green-50 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-110"
+                            className="bg-white/90 backdrop-blur-sm text-blue-600 p-2 rounded-lg hover:bg-blue-50 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-110"
                           >
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
@@ -665,7 +665,7 @@ const Stocks = () => {
                     ) : (
                       <button
                         onClick={handeladdstocks}
-                        className="bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium py-3 px-8 rounded-lg hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-blue-500/25"
+                        className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium py-3 px-8 rounded-lg hover:from-blue-700 hover:to-indigo-700 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-blue-500/25"
                       >
                         Add First Stock
                       </button>
@@ -683,7 +683,7 @@ const Stocks = () => {
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
             {/* Header */}
-            <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-5 rounded-t-2xl sticky top-0 z-10">
+            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-5 rounded-t-2xl sticky top-0 z-10">
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-2xl font-bold text-white">Add New Stock</h2>
@@ -881,7 +881,7 @@ const Stocks = () => {
               </button>
               <button
                 onClick={handleAddStocks}
-                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-lg hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 transition-all duration-200 shadow-lg flex items-center gap-2"
+                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium rounded-lg hover:from-blue-700 hover:to-indigo-700 transform hover:scale-105 transition-all duration-200 shadow-lg flex items-center gap-2"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -898,15 +898,15 @@ const Stocks = () => {
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
             {/* Header */}
-            <div className="bg-gradient-to-r from-green-600 to-green-700 px-6 py-5 rounded-t-2xl sticky top-0 z-10">
+            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-5 rounded-t-2xl sticky top-0 z-10">
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-2xl font-bold text-white">Edit Stock</h2>
-                  <p className="text-green-100 text-sm mt-1">Update stock information</p>
+                  <p className="text-blue-100 text-sm mt-1">Update stock information</p>
                 </div>
                 <button
                   onClick={handleCancelEdit}
-                  className="text-white hover:text-green-200 transition-colors duration-200 p-1"
+                  className="text-white hover:text-blue-200 transition-colors duration-200 p-1"
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -928,7 +928,7 @@ const Stocks = () => {
                   value={editForm.name}
                   onChange={handleEditFormChange}
                   placeholder="Enter material name"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 bg-gray-50"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50"
                   required
                 />
               </div>
@@ -942,7 +942,7 @@ const Stocks = () => {
                   name="category"
                   value={editForm.category}
                   onChange={handleEditFormChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 bg-gray-50"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50"
                   required
                 >
                   <option value="">Select Category</option>
@@ -965,7 +965,7 @@ const Stocks = () => {
                   value={editForm.materialGrade}
                   onChange={handleEditFormChange}
                   placeholder="Enter material grade"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 bg-gray-50"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50"
                 />
               </div>
 
@@ -980,7 +980,7 @@ const Stocks = () => {
                   value={editForm.unitPrice}
                   onChange={handleEditFormChange}
                   placeholder="Enter unit price in Rupees"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 bg-gray-50"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50"
                   step="0.01"
                   min="0"
                 />
@@ -996,7 +996,7 @@ const Stocks = () => {
                   name="purchaseDate"
                   value={editForm.purchaseDate}
                   onChange={handleEditFormChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 bg-gray-50"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50"
                 />
                 <p className="text-xs text-gray-500 mt-1">Select the purchase date of this stock</p>
               </div>
@@ -1012,7 +1012,7 @@ const Stocks = () => {
                   value={editForm.image}
                   onChange={handleEditFormChange}
                   placeholder="https://example.com/image.jpg"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 bg-gray-50"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50"
                   required
                 />
               </div>
@@ -1026,7 +1026,7 @@ const Stocks = () => {
                   <button
                     type="button"
                     onClick={() => addDetailField(true)}
-                    className="text-sm bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-all duration-200 flex items-center gap-2"
+                    className="text-sm bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-all duration-200 flex items-center gap-2"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -1043,20 +1043,20 @@ const Stocks = () => {
                           value={detail.label}
                           onChange={(e) => handleDetailChange(index, 'label', e.target.value, true)}
                           placeholder="Label (e.g., Size, Color, Brand)"
-                          className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm bg-white"
+                          className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white"
                         />
                         <input
                           type="text"
                           value={detail.value}
                           onChange={(e) => handleDetailChange(index, 'value', e.target.value, true)}
                           placeholder="Value"
-                          className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm bg-white"
+                          className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white"
                         />
                         {detail.label === "Quantity" && (
                           <select
                             value={detail.unit}
                             onChange={(e) => handleDetailChange(index, 'unit', e.target.value, true)}
-                            className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm bg-white"
+                            className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white"
                           >
                             <option value="">Select Unit</option>
                             {unitOptions.map((unit) => (
@@ -1095,7 +1095,7 @@ const Stocks = () => {
               </button>
               <button
                 onClick={() => handleSaveEdit(editingId)}
-                className="px-8 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white font-medium rounded-lg hover:from-green-700 hover:to-green-800 transform hover:scale-105 transition-all duration-200 shadow-lg flex items-center gap-2"
+                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium rounded-lg hover:from-blue-700 hover:to-indigo-700 transform hover:scale-105 transition-all duration-200 shadow-lg flex items-center gap-2"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -1110,5 +1110,4 @@ const Stocks = () => {
     </>
   )
 }
-
-export default Stocks
+export default Stocks;  
