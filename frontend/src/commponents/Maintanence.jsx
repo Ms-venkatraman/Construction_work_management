@@ -34,17 +34,17 @@ const Maintenance = () => {
       setLoading(true);
       
       // Fetch maintenance data
-      const maintenanceResponse = await axios.get('http://localhost:3000/api/user/maitanance');
+      const maintenanceResponse = await axios.get(`${import.meta.env.VITE_API_URL}/api/user/maitanance`);
       if (maintenanceResponse.data.success) {
         setMaintenanceData(maintenanceResponse.data.data);
       }
 
       // Fetch labour data
-      const labourResponse = await axios.get('http://localhost:3000/api/user/getlabour');
+      const labourResponse = await axios.get(`${import.meta.env.VITE_API_URL}/api/user/getlabour`);
       setLabourdata(labourResponse.data.data);
 
       // Fetch stocks data
-      const stocksResponse = await axios.get('http://localhost:3000/api/user/getstock');
+      const stocksResponse = await axios.get(`${import.meta.env.VITE_API_URL}/api/user/getstock`);
       setStocks(stocksResponse.data.stocks);
       // setMaterialstocks(stocksResponse.data.stocks);
 
@@ -70,7 +70,7 @@ const Maintenance = () => {
         } : null
       };
 
-      const response = await axios.post('http://localhost:3000/api/user/maitanance', dataToSend);
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/user/maitanance`, dataToSend);
       return response.data;
     } catch (error) {
       console.error('Error saving maintenance data:', error);
@@ -89,7 +89,7 @@ const Maintenance = () => {
         } : null
       };
 
-      const response = await axios.put(`http://localhost:3000/api/user/maitanance/${id}`, dataToSend);
+      const response = await axios.put(`${import.meta.env.VITE_API_URL}/api/user/maitanance/${id}`, dataToSend);
       return response.data;
     } catch (error) {
       console.error('Error updating maintenance data:', error);
@@ -178,7 +178,7 @@ const Maintenance = () => {
         updatedStock: updatedStock
       });
       console.log(updatedStock)
-      const response = await axios.put("http://localhost:3000/api/user/editstock", updatedStock);
+      const response = await axios.put(`${import.meta.env.VITE_API_URL}/api/user/editstock`, updatedStock);
       console.log('✅ Stock update response:', response.data);
       return response.data.success;
     } catch (error) {

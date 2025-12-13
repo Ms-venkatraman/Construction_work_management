@@ -34,7 +34,7 @@ const Login = () => {
 
     setIsLoading(true);
     try {
-      const response = await axios.post('http://localhost:3000/api/user/login', getdata);
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/user/login`, getdata);
       if (response.data.success) {
         error.current.innerText = "";
         setGetdata({ mobile: "", password: "" });

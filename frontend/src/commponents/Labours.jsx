@@ -13,7 +13,7 @@ const Labour = () => {
   const [deletelabour, setDeletelabour] = useState(false)
   
   const fetchlabour= async ()=>{
-      const labour=await axios.get('http://localhost:3000/api/user/getlabour')
+      const labour=await axios.get(`${import.meta.env.VITE_API_URL}/api/user/getlabour`)
       setLabourdetail(labour.data.data)
   }
   useEffect(()=>{
@@ -78,7 +78,7 @@ const Labour = () => {
       image: addForm.image,
     };
     try {
-    const adddb=await axios.post('http://localhost:3000/api/user/addlabour',newLabour)
+    const adddb=await axios.post(`${import.meta.env.VITE_API_URL}/api/user/addlabour`,newLabour)
     setLabourdetail([...labourdetail, newLabour]);
     setAddForm({
       name: "",
@@ -142,7 +142,7 @@ const Labour = () => {
       role: "",
       image: ""
     });
-    const update=await axios.put('http://localhost:3000/api/user/editlabour',updatedLabour)
+    const update=await axios.put(`${import.meta.env.VITE_API_URL}/api/user/editlabour`,updatedLabour)
     console.log(update)
   };
 
@@ -164,7 +164,7 @@ const Labour = () => {
       const confirmdelete=confirm("confirm to delete labour")
       setDeletelabour(confirmdelete)
       if(confirmdelete){
-      const deletelabour= await axios.delete(`http://localhost:3000/api/user/deletelabour/${id}`); 
+      const deletelabour= await axios.delete(`${import.meta.env.VITE_API_URL}/api/user/deletelabour/${id}`); 
       setDeletelabour(!confirmdelete)
       }
       else{

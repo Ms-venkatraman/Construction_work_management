@@ -12,7 +12,7 @@ const Material = () => {
     const fetchStocks = async () => {
         setLoading(true);
         try {
-            const response = await axios.get('http://localhost:3000/api/user/getstock');
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/user/getstock`);
             console.log(response.data.stocks)
             setStocks(response.data.stocks);
         } catch (error) {

@@ -58,7 +58,7 @@ const Stocks = () => {
   const fetchstocks = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:3000/api/user/getstock');
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/user/getstock`);
       setMaterialstocks(response.data.stocks || []);
     } catch (error) {
       console.log('Error fetching stocks:', error);
@@ -192,7 +192,7 @@ const Stocks = () => {
     console.log("Adding stock:", newStock);
 
     try {
-      await axios.post('http://localhost:3000/api/user/addstocks', newStock);      
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/user/addstocks`, newStock);      
       await fetchstocks(); // Refresh data after adding
       
       // Reset form and close
@@ -291,7 +291,7 @@ const Stocks = () => {
     };
 
     try {
-      await axios.put("http://localhost:3000/api/user/editstock", updatedStock);
+      await axios.put(`${import.meta.env.VITE_API_URL}/api/user/editstock`, updatedStock);
       
       // Auto-refresh the stocks list
       await fetchstocks();
@@ -335,7 +335,7 @@ const Stocks = () => {
       try {
         // Use _id instead of id
         
-        await axios.delete(`http://localhost:3000/api/user/deletestock/${stock._id}`);
+        await axios.delete(`${import.meta.env.VITE_API_URL}/api/user/deletestock/${stock._id}`);
         
         // Auto-refresh the stocks list
         await fetchstocks();

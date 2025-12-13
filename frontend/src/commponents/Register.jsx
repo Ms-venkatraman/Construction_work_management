@@ -49,7 +49,7 @@ export const Register = () => {
                 confirmpassword: conpass.current.value
             }
             const regdata = user.current;
-            const senddata = await axios.post("http://localhost:3000/api/user/register", regdata)
+            const senddata = await axios.post(`${import.meta.env.VITE_API_URL}/api/user/register`, regdata)
             
             toast.success("Successfully Registered! Redirecting to login...", {
                 position: "top-right",
