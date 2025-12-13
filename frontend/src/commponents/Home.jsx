@@ -3,8 +3,13 @@ import Navbar from "./Navbar"
 import Footer from "./Footer"
 
 const Home = () => {
+
+  console.log(import.meta.env.VITE_API_URL);
+
   return (
     <>
+
+
       <Navbar />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
         {/* Background Pattern */}
