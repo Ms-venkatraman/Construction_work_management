@@ -1,7 +1,6 @@
 import { useRef, useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import Footer from "./Footer";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -380,8 +379,6 @@ export const Register = () => {
                     </div>
                 </div>
             </div>
-            
-            <Footer />
         </>
     )
 }

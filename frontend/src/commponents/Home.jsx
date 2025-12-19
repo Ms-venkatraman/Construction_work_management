@@ -1,14 +1,8 @@
 import { Link } from "react-router-dom"
-import Navbar from "./Navbar"
-import Footer from "./Footer"
-
 const Home = () => {
 
   return (
     <>
-
-
-      <Navbar />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] opacity-30"></div>
@@ -289,7 +283,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   )
 }

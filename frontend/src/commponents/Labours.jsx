@@ -1,9 +1,6 @@
 import React, {useState } from 'react';
 import axios from 'axios';
 import { useEffect } from 'react';
-import Navbar from './Navbar';
-import Footer from './Footer';
-
 const Labour = () => {
   const [labourdetail, setLabourdetail] = useState([]);
   const [showAddForm, setShowAddForm] = useState(false);
@@ -204,7 +201,7 @@ const filteredLabour = labourdetail.filter(labour => {
   const uniqueRoles = ['All', ...new Set(labourdetail.map(labour => labour.role))];
 
   return (
-    <><Navbar/>
+    <>
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 px-3 sm:px-4 lg:px-6">
         {/* Header Section */}
         <div className="max-w-7xl mx-auto mb-6">
@@ -686,7 +683,6 @@ const filteredLabour = labourdetail.filter(labour => {
           </div>
         </div>
       )}
-      <Footer/>
     </>
   );
 };

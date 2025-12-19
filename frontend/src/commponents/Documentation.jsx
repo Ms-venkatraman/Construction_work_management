@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import Navbar from './Navbar';
-import Footer from './Footer';
 
 const Documentation = () => {
   const [showForm, setShowForm] = useState(false);
@@ -49,7 +47,6 @@ const Documentation = () => {
 
   return (
   <>
-    <Navbar/>
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Header Section */}
@@ -197,7 +194,6 @@ const Documentation = () => {
         </div>
       </div>
     </div>
-        <Footer/>
     </>
   );
 };

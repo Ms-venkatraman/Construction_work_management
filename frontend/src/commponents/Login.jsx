@@ -3,8 +3,6 @@ import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Footer from "./Footer";
-
 const Login = () => {
   const [check, setCheck] = useState(true);
   const [getdata, setGetdata] = useState({ mobile: "", password: "" });
@@ -207,16 +205,6 @@ const Login = () => {
 
               {/* Options Row */}
               <div className="flex items-center justify-between pt-2">
-                <label className="inline-flex items-center cursor-pointer">
-                  <input
-                    type="checkbox"
-                    onChange={checkf}
-                    checked={!check}
-                    className="sr-only peer"
-                  />
-                  <div className="relative w-10 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
-                  <span className="ml-2 text-sm text-gray-700">Show password</span>
-                </label>
                 <button
                   type="button"
                   onClick={() => toast.info("Check your email for reset instructions", { theme: "colored" })}
@@ -301,8 +289,6 @@ const Login = () => {
           </div>          
         </div>
       </div>
-      
-      <Footer />
     </>
   );
 };

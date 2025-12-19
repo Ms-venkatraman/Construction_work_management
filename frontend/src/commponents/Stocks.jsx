@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
 import axios from "axios";
 
 const Stocks = () => {
@@ -443,7 +441,7 @@ const Stocks = () => {
   };
 
   return (
-    <><Navbar/>
+    <>
       <div className="min-h-screen bg-gradient-to-br from-slate-100 via-white to-blue-100 py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header Section */}
@@ -1106,7 +1104,6 @@ const Stocks = () => {
           </div>
         </div>
       )}
-      <Footer/>
     </>
   )
 }

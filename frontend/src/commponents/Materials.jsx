@@ -1,8 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-
 const Material = () => {
     const [stocks, setStocks] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -104,20 +101,18 @@ const Material = () => {
 
     if (loading) {
         return (
-            <><Navbar />
+            <>
                 <div className="min-h-screen bg-gradient-to-br from-slate-100 via-white to-blue-100 flex items-center justify-center">
                     <div className="text-center">
                         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
                         <p className="mt-4 text-gray-600">Loading materials...</p>
                     </div>
                 </div>
-            <Footer/>
             </>
         );
     }
-
     return (
-        <><Navbar />
+        <>
             <div className="min-h-screen bg-gradient-to-br from-slate-100 via-white to-blue-100 py-8 px-4 sm:px-6 lg:px-8">
                 {/* Header Section */}
                 <div className="max-w-7xl mx-auto">
@@ -270,7 +265,6 @@ const Material = () => {
                     )}
                 </div>
             </div>
-        <Footer/>
         </>
     );
 };

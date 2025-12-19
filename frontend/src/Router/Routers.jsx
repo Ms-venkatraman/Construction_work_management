@@ -8,11 +8,14 @@ import Labour from "../commponents/Labours"
 import Documentation from "../commponents/Documentation"
 import Register from "../commponents/Register"
 import Material from "../commponents/Materials"
+import MainLayout from "../commponents/MainLayout"
 
 const Routers = () => {
   return (<>
     <Routes>
         <Route path="/" element={<Login/>}/>
+        <Route path="/register" element={<Register/>}/>
+      <Route element={<MainLayout/>}>
         <Route path="/home" element={<Home/>}/>
         <Route path="/maintanence" element={<Maintanence/>}/>
         <Route path="/stack" element={<Stack/>}/>
@@ -20,7 +23,7 @@ const Routers = () => {
         <Route path="/materials" element={<Material/>}/>
         <Route path="/stock" element={<Stocks/>}/>
         <Route path="/documentation" element={<Documentation/>}/>   
-        <Route path="/register" element={<Register/>}/>
+      </Route>
       </Routes>
   </>)
 }
