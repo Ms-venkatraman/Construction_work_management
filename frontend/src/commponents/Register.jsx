@@ -49,12 +49,12 @@ export const Register = () => {
             }
             const regdata = user.current;
             const senddata = await axios.post(`${import.meta.env.VITE_API_URL}/api/user/register`, regdata)
-            
+            localStorage.setItem("token", senddata.data.getJwtToken);
             toast.success("Successfully Registered! Redirecting to login...", {
                 position: "top-right",
                 autoClose: 3000,
                 theme: "colored",
-                onClose: () => navigation('/')
+                onClose: () => navigation('/homes')
             });
             
             rname.current.value = ""

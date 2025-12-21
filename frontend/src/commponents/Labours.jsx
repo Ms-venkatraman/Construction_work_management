@@ -10,7 +10,9 @@ const Labour = () => {
   const [deletelabour, setDeletelabour] = useState(false)
   
   const fetchlabour= async ()=>{
-      const labour=await axios.get(`${import.meta.env.VITE_API_URL}/api/user/getlabour`)
+    // ${import.meta.env.VITE_API_URL}
+      const labour= await axios.get(`http:localhost:3000/api/user/getlabour`);
+      console.log(labour);
       setLabourdetail(labour.data.data)
   }
   useEffect(()=>{

@@ -14,7 +14,6 @@ export const reg_controler=async (req,res)=>{
     console.log("something error in register :",error.message)
    }
 }
-
 export const login=async (req,res)=>{
     try {
         const {mobile,password}= await req.body

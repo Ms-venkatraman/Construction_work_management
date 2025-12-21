@@ -32,14 +32,17 @@ const Login = () => {
 
     setIsLoading(true);
     try {
+      //${import.meta.env.VITE_API_URL}
       const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/user/login`, getdata);
       if (response.data.success) {
+        console.log(response.data);
+        localStorage.setItem("token", response.data.getJwtToken);
+
         error.current.innerText = "";
         setGetdata({ mobile: "", password: "" });
-        
-        toast.success("Successfully logged in! Redirecting...", {
+        toast.success(response.data.datas.name+" Successfully logged in!", {
           position: "top-right",
-          autoClose: 3000,
+          autoClose: 6000,
           theme: "colored",
         });
         
