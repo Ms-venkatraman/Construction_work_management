@@ -5,7 +5,6 @@ const registerschema=new mongoose.Schema({
     // mail:String,
     confirmpassword:String||Number,
 })
-
 const registerModel=mongoose.model('register',registerschema);
 export default registerModel
 
@@ -19,6 +18,7 @@ const labourschema=new mongoose.Schema({
     role: String,
     image:String,
 })
+ 
 export const labourModel=mongoose.model('labours',labourschema);
 
 

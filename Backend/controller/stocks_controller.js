@@ -3,7 +3,8 @@ import { stocks } from "../Model/constructionModel.js"
 export const addstocks = async (req, res) => {
     const stock = req.body;
     try {
-        const stocksdata = await stocks.create(stock);
+        const userId=req.user.id;
+        const stocksdata = await stocks.create(stock,userId);
         res.status(201).json({ message: "add data successfully", stocksdata });
     } catch (error) {
         console.log("something error in addstocks :", error.message);
@@ -13,7 +14,8 @@ export const addstocks = async (req, res) => {
 
 export const getstocks = async (req, res) => {
     try {
-        const data = await stocks.find().sort({ createdAt: -1 });
+        const userId=req.user.id;
+        const data = await stocks.find({userId}).sort({ createdAt: -1 });
         res.status(200).json({ msg: "data get successfull", stocks: data });
     } catch (error) {
         console.log("something error in getstocks :", error.message);
@@ -23,15 +25,15 @@ export const getstocks = async (req, res) => {
 
 export const editstocks = async (req, res) => {
    // Update your editstock route to handle id field
-    console.log(req.body);
   try {
+    const userId=req.user.id;
     const { id, name, details,category,image} = req.body;
     if (!id) {
       return res.status(400).json({ success: false, message: 'Stock ID is required' });
     } 
     // Find stock by id (crypto.randomUUID) instead of _id
     const updatedStock = await stocks.findOneAndUpdate(
-      {_id:id}, // Find by id field
+      {_id:id,userId}, // Find by id field
       { 
         name: name,
         details: details,
@@ -55,8 +57,9 @@ export const editstocks = async (req, res) => {
 export const deletestock = async (req, res) => {
     const { id } = req.params;
     try {
+      const userId=req.user.id;
       console.log('Deleting stock with ID:', id);
-        const stockdelete = await stocks.findByIdAndDelete(id); // Use id from URL params
+        const stockdelete = await stocks.findByIdAndDelete(id,userId); // Use id from URL params
         
         if (!stockdelete) {
             return res.status(404).json({ msg: "Stock not found" });

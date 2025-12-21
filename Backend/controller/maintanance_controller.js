@@ -1,5 +1,5 @@
 import { maintanance } from "../Model/constructionModel.js";
-
+import jwt from 'jsonwebtoken';
 // POST - Create new maintenance entry
 export const addmaintanance = async (req, res) => {
     const maintanancedatas = req.body;
@@ -11,7 +11,8 @@ export const addmaintanance = async (req, res) => {
         res.status(201).json({
             success: true,
             message: 'Maintenance entry created successfully',
-            data: maintanancedata
+            data: maintanancedata,
+            
         });
 
     } catch (error) {
@@ -27,11 +28,13 @@ export const addmaintanance = async (req, res) => {
 // GET - Get all maintenance entries
 export const getmaintanance = async (req, res) => {
     try {
-        const mainatananncedata = await maintanance.find().sort({ createdAt: -1 });
+        const userId=req.user.id;
+        const mainatananncedata = await maintanance.find({userId}).sort({ createdAt: -1 });
 
         res.status(200).json({
             success: true,
-            data: mainatananncedata
+            data: mainatananncedata,
+            request:req.headers
         });
     } catch (error) {
         console.error('Error fetching maintenance entries:', error);
@@ -46,10 +49,12 @@ export const getmaintanance = async (req, res) => {
 // PUT - Update maintenance entry
 export const updatemaintanance = async (req, res) => {
     try {
+        const userId=req.user.id;
         const { id } = req.params;
         
         const updatedEntry = await maintanance.findByIdAndUpdate(
             id,
+            userId,
             req.body,
             { new: true, runValidators: true }
         );
