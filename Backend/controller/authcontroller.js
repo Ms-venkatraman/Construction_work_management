@@ -31,7 +31,8 @@ export const login=async (req,res)=>{
         if(!logdata) return res.status(404).json({msg:'user not found in DB'})
         const match =await bcrypt.compare(password, logdata.confirmpassword);
         if(!match) return res.status(400).json({msg:'invalid password'})
-        const datas={name:logdata.username,mobile:logdata.mobile,}
+        console.log("login data :",logdata)
+        const datas={name:logdata.username,mobile:logdata.mobile}
          const  getJwtToken = jwt.sign({ id:logdata._id.toString()}, process.env.JWT_SECRET_KEY, {
                                  expiresIn: process.env.JWT_EXPIRE 
                                  });
@@ -41,6 +42,6 @@ export const login=async (req,res)=>{
     }
     catch (error) {
         console.log('something error to login : ',error.message)
-        return res.status(500).json({ msg: 'give valid number' });
+        return res.status(500).json({ msg: ' number' });
     }
 }
