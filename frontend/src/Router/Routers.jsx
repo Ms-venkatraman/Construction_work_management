@@ -13,10 +13,10 @@ import MainLayout from "../commponents/MainLayout"
 const Routers = () => {
   return (<>
     <Routes>
-        <Route path="/" element={<Login/>}/>
-        <Route path="/register" element={<Register/>}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/register" element={<Register/>}/>         
       <Route element={<MainLayout/>}>
-        <Route path="/home" element={<Home/>}/>
+        <Route path="/" element={<Home/>}/>
         <Route path="/maintanence" element={<Maintanence/>}/>
         <Route path="/stack" element={<Stack/>}/>
         <Route path="/labour" element={<Labour/>}/>

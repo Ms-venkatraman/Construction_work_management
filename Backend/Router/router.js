@@ -15,7 +15,7 @@ Router.use(authMiddleware);
 Router.post('/adddocument',adddocument)
 
 Router.post('/maitanance', addmaintanance);
-Router.get('/maitanance',authMiddleware,getmaintanance);
+Router.get('/maitanance',getmaintanance);
 Router.put('/maitanance/:id', updatemaintanance);
 
 Router.post('/addlabour',addlabour)

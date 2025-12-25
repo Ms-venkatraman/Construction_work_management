@@ -1,5 +1,6 @@
 import React, {useState } from 'react';
-import axios from 'axios';
+// import api from 'api';
+import api from '../api/axiosConfig.js';
 import { useEffect } from 'react';
 const Labour = () => {
   const [labourdetail, setLabourdetail] = useState([]);
@@ -11,9 +12,18 @@ const Labour = () => {
   
   const fetchlabour= async ()=>{
     // ${import.meta.env.VITE_API_URL}
-      const labour= await axios.get(`http:localhost:3000/api/user/getlabour`);
-      console.log(labour);
+    try{
+      const token=localStorage.getItem("token")
+      const labour = await api.get(`/api/user/getlabour`);
       setLabourdetail(labour.data.data)
+    }
+    catch(err){
+      if(err.message.includes(401)){
+        alert("unauthoraized person") 
+        console.log("unauthoraized person")
+      }
+      // alert(err.message)
+    }
   }
   useEffect(()=>{
     fetchlabour()
@@ -77,7 +87,7 @@ const Labour = () => {
       image: addForm.image,
     };
     try {
-    const adddb=await axios.post(`${import.meta.env.VITE_API_URL}/api/user/addlabour`,newLabour)
+    const adddb=await api.post(`/api/user/addlabour`,newLabour)
     setLabourdetail([...labourdetail, newLabour]);
     setAddForm({
       name: "",
@@ -141,7 +151,7 @@ const Labour = () => {
       role: "",
       image: ""
     });
-    const update=await axios.put(`${import.meta.env.VITE_API_URL}/api/user/editlabour`,updatedLabour)
+    const update=await api.put(`/api/user/editlabour`,updatedLabour)
     console.log(update)
   };
 
@@ -163,7 +173,7 @@ const Labour = () => {
       const confirmdelete=confirm("confirm to delete labour")
       setDeletelabour(confirmdelete)
       if(confirmdelete){
-      const deletelabour= await axios.delete(`${import.meta.env.VITE_API_URL}/api/user/deletelabour/${id}`); 
+      const deletelabour= await api.delete(`/api/user/deletelabour/${id}`); 
       setDeletelabour(!confirmdelete)
       }
       else{

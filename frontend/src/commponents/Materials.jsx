@@ -1,4 +1,5 @@
-import axios from "axios";
+// import axios from "api";
+import api from "../api/axiosConfig.js";
 import { useEffect, useState } from "react";
 const Material = () => {
     const [stocks, setStocks] = useState([]);
@@ -9,7 +10,7 @@ const Material = () => {
     const fetchStocks = async () => {
         setLoading(true);
         try {
-            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/user/getstock`);
+            const response = await api.get(`/api/user/getstock`);
             console.log(response.data.stocks)
             setStocks(response.data.stocks);
         } catch (error) {

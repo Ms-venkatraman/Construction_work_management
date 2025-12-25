@@ -18,8 +18,9 @@ export const reg_controler=async (req,res)=>{
             res.json({getJwtToken})
     res.status(201).json({message:"data added succesfully",dbcreate,getJwtToken})
    } catch (error) {
-    res.status(401).json({msg:"already Registered This username/number"})
     console.log("something error in register :",error.message)
+    if(error.code===11000) return res.status(409).json({msg:"already Registered This username/number"})
+    
    }
 }
 export const login=async (req,res)=>{
@@ -28,13 +29,13 @@ export const login=async (req,res)=>{
         if(!mobile||!password) return res.status(401).json({msg:"must be enter value!"})
         const logdata= await registerModel.findOne({mobile})
         if(!logdata) return res.status(404).json({msg:'user not found in DB'})
-        const match = bcrypt.compare(password, logdata.confirmpassword);
+        const match =await bcrypt.compare(password, logdata.confirmpassword);
         if(!match) return res.status(400).json({msg:'invalid password'})
         const datas={name:logdata.username,mobile:logdata.mobile,}
          const  getJwtToken = jwt.sign({ id:logdata._id.toString()}, process.env.JWT_SECRET_KEY, {
                                  expiresIn: process.env.JWT_EXPIRE 
                                  });
-    
+         console.log("login success");                       
          return res.status(200).json({success:true, datas, getJwtToken})
 
     }

@@ -29,7 +29,7 @@ const Navbar = () => {
                     {/* Desktop Navigation Links */}
                     <div className="hidden lg:flex items-center space-x-4 xl:space-x-6">
                         <Link 
-                            to="/home" 
+                            to="/" 
                             className="relative text-white font-semibold px-4 py-2 rounded-lg hover:text-yellow-400 transition-all duration-300 group"
                         >
                             Home
@@ -51,7 +51,7 @@ const Navbar = () => {
                         </Link>
                         <div className="flex items-center space-x-4">
                                 <Link 
-                                to="/" 
+                                to="/login" 
                                 className="bg-yellow-500 text-gray-900 font-bold px-4 lg:px-3 py-1 lg:py-1 rounded-lg hover:bg-yellow-400 transform hover:scale-105 transition duration-300 shadow-lg hover:shadow-yellow-500/25 border-2 border-yellow-500 text-sm lg:text-base"
                             >
                                 Login
@@ -75,7 +75,7 @@ const Navbar = () => {
                     <div className="bg-gray-800/80 backdrop-blur-lg rounded-2xl border border-white/10 p-6 shadow-2xl">
                         <div className="flex flex-col space-y-4">
                             <Link 
-                                to="/home" 
+                                to="/" 
                                 onClick={() => setIsMenuOpen(false)}
                                 className="flex items-center space-x-3 text-white font-semibold px-4 py-3 rounded-xl hover:bg-white/10 transition-all duration-300 group border border-transparent hover:border-white/20"
                             >
@@ -104,7 +104,7 @@ const Navbar = () => {
                             <div className="flex flex-col space-y-3 pt-2 border-t border-white/20">
                             
                                 <Link 
-                                    to="/" 
+                                    to="/login" 
                                     onClick={() => setIsMenuOpen(false)}
                                     className="bg-yellow-500 text-gray-900 font-bold px-6 py-3 rounded-xl hover:bg-yellow-400 transform hover:scale-105 transition duration-300 shadow-lg text-center border-2 border-yellow-500"
                                 >

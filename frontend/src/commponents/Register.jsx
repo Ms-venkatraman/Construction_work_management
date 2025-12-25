@@ -48,13 +48,13 @@ export const Register = () => {
                 confirmpassword: conpass.current.value
             }
             const regdata = user.current;
-            const senddata = await axios.post(`${import.meta.env.VITE_API_URL}/api/user/register`, regdata)
+            const senddata = await axios.post(`http://localhost:3000/api/user/register`, regdata)
             localStorage.setItem("token", senddata.data.getJwtToken);
             toast.success("Successfully Registered! Redirecting to login...", {
                 position: "top-right",
                 autoClose: 3000,
                 theme: "colored",
-                onClose: () => navigation('/homes')
+                onClose: () => navigation('/')
             });
             
             rname.current.value = ""
@@ -341,7 +341,7 @@ export const Register = () => {
 
                             {/* Login Link */}
                             <Link
-                                to="/"
+                                to="/login"
                                 className="block w-full py-3 px-4 border-2 border-dashed border-gray-200 hover:border-blue-300 hover:bg-blue-50 rounded-lg text-center font-medium text-gray-700 hover:text-blue-700 transition-all duration-200 group"
                             >
                                 <div className="flex items-center justify-center">

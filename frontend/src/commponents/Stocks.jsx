@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api/axiosConfig.js";
 
 const Stocks = () => {
   const [materialstocks, setMaterialstocks] = useState([]);
@@ -56,11 +56,13 @@ const Stocks = () => {
   const fetchstocks = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/user/getstock`);
+      //http://localhost:3000/api/user/getstock
+      const response = await api.get(`/api/user/getstock`);
       setMaterialstocks(response.data.stocks || []);
     } catch (error) {
-      console.log('Error fetching stocks:', error);
-      alert('Failed to load stocks');
+      if(error.message.includes(401)){
+      alert('unauthorized person');
+    }
     } finally {
       setLoading(false);
     }
@@ -190,7 +192,7 @@ const Stocks = () => {
     console.log("Adding stock:", newStock);
 
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/api/user/addstocks`, newStock);      
+      await api.post(`/api/user/addstocks`, newStock);      
       await fetchstocks(); // Refresh data after adding
       
       // Reset form and close
@@ -289,7 +291,7 @@ const Stocks = () => {
     };
 
     try {
-      await axios.put(`${import.meta.env.VITE_API_URL}/api/user/editstock`, updatedStock);
+      await api.put(`/api/user/editstock`, updatedStock);
       
       // Auto-refresh the stocks list
       await fetchstocks();
@@ -333,7 +335,7 @@ const Stocks = () => {
       try {
         // Use _id instead of id
         
-        await axios.delete(`${import.meta.env.VITE_API_URL}/api/user/deletestock/${stock._id}`);
+        await api.delete(`/api/user/deletestock/${stock._id}`);
         
         // Auto-refresh the stocks list
         await fetchstocks();

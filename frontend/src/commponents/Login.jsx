@@ -37,8 +37,7 @@ const Login = () => {
       if (response.data.success) {
         console.log(response.data);
         localStorage.setItem("token", response.data.getJwtToken);
-
-        error.current.innerText = "";
+        error.current.innerText ="";
         setGetdata({ mobile: "", password: "" });
         toast.success(response.data.datas.name+" Successfully logged in!", {
           position: "top-right",
@@ -46,7 +45,7 @@ const Login = () => {
           theme: "colored",
         });
         
-        setTimeout(() => navigate('/home'), 1500);
+        setTimeout(() => navigate('/'), 1500);
       }
     } catch (err) {
       const errorMessage = err.response?.data?.msg || "Network error! Please try again.";
