@@ -33,7 +33,7 @@ const Login = () => {
     setIsLoading(true);
     try {
       //${import.meta.env.VITE_API_URL}
-      const response = await axios.post(`http://localhost:3000/api/user/login`, getdata);
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/user/login`, getdata);
       if (response.data.success) {
         console.log(response.data);
         localStorage.setItem("token", response.data.getJwtToken);
