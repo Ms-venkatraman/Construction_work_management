@@ -16,4 +16,4 @@ console.log(process.env.MONGO_URI);
 app.listen(PORT,()=>{
     console.log(`server running in http://localhost:${PORT}`)
 })
-// http://localhost:3000
+// http://localhost:5000
