@@ -16,4 +16,8 @@ console.log(process.env.MONGO_URI);
 app.listen(PORT,()=>{
     console.log(`server running in http://localhost:${PORT}`)
 })
+<<<<<<< HEAD
 // http://localhost:9000
+=======
+// http://localhost:8000
+>>>>>>> 42471033a98cbdd708a7d526d0f1ee68061c487e
