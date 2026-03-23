@@ -3,10 +3,11 @@ import jwt from 'jsonwebtoken';
 // POST - Create new maintenance entry
 export const addmaintanance = async (req, res) => {
     const maintanancedatas = req.body;
+    const userId=req.user.id;
     console.log(maintanancedatas);
     
     try {
-        const maintanancedata = await maintanance.create(maintanancedatas);
+        const maintanancedata = await maintanance.create({maintanancedatas,userId:userId});
 
         res.status(201).json({
             success: true,
@@ -28,7 +29,6 @@ export const addmaintanance = async (req, res) => {
 // GET - Get all maintenance entries
 export const getmaintanance = async (req, res) => {
     try {
-        const userId=req.user.id;
         const mainatananncedata = await maintanance.find({userId}).sort({ createdAt: -1 });
 
         res.status(200).json({
@@ -49,7 +49,7 @@ export const getmaintanance = async (req, res) => {
 // PUT - Update maintenance entry
 export const updatemaintanance = async (req, res) => {
     try {
-        const userId=req.user.id;
+        const {userId} = req.user.id;
         const { id } = req.params;
         
         const updatedEntry = await maintanance.findByIdAndUpdate(

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 const Material = () => {
     const [stocks, setStocks] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [unauth, setUnauth] = useState(false);
     const [categoryFilter, setCategoryFilter] = useState("All");
     
     // Fetch only stocks data
@@ -11,10 +12,13 @@ const Material = () => {
         setLoading(true);
         try {
             const response = await api.get(`/api/user/getstock`);
-            console.log(response.data.stocks)
             setStocks(response.data.stocks);
         } catch (error) {
-            console.log("Error fetching stocks:", error.message);
+            if(error.message.includes(401)){
+                console.log("Unauthorized access - 401");  
+                setUnauth(true);
+                return;
+            }
             setStocks([]);
         } finally {
             setLoading(false);
@@ -107,6 +111,18 @@ const Material = () => {
                     <div className="text-center">
                         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
                         <p className="mt-4 text-gray-600">Loading materials...</p>
+                    </div>
+                </div>
+            </>
+        );
+    }
+    if (unauth) {
+        return (
+            <>
+                <div className="min-h-screen bg-gradient-to-br from-slate-100 via-white to-blue-100 flex items-center justify-center">
+                    <div className="text-center">
+                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+                        <p className="mt-4 text-red-600">Unauthorized access. Please log in.</p>
                     </div>
                 </div>
             </>

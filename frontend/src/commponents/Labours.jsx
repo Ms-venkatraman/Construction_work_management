@@ -15,6 +15,7 @@ const Labour = () => {
     try{
       const token=localStorage.getItem("token")
       const labour = await api.get(`/api/user/getlabour`);
+      console.log(labour)
       setLabourdetail(labour.data.data)
     }
     catch(err){
@@ -25,9 +26,9 @@ const Labour = () => {
       // alert(err.message)
     }
   }
-  useEffect(()=>{
-    fetchlabour()
-  },[editingId])
+  // useEffect(()=>{
+  //   fetchlabour()
+  // },[editingId])
   useEffect(()=>{
     fetchlabour()
   },[deletelabour])
@@ -87,7 +88,7 @@ const Labour = () => {
       image: addForm.image,
     };
     try {
-    const adddb=await api.post(`/api/user/addlabour`,newLabour)
+    const adddb=await api.post(`http://localhost:3000/api/user/addlabour`,newLabour)
     setLabourdetail([...labourdetail, newLabour]);
     setAddForm({
       name: "",

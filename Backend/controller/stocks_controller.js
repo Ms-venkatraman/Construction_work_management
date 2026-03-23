@@ -4,7 +4,7 @@ export const addstocks = async (req, res) => {
     const stock = req.body;
     try {
         const userId=req.user.id;
-        const stocksdata = await stocks.create(stock,userId);
+        const stocksdata = await stocks.create({stock,userId:userId});
         res.status(201).json({ message: "add data successfully", stocksdata });
     } catch (error) {
         console.log("something error in addstocks :", error.message);
@@ -26,14 +26,14 @@ export const getstocks = async (req, res) => {
 export const editstocks = async (req, res) => {
    // Update your editstock route to handle id field
   try {
-    const userId=req.user.id;
+    // const userId=req.user.id;
     const { id, name, details,category,image} = req.body;
     if (!id) {
       return res.status(400).json({ success: false, message: 'Stock ID is required' });
     } 
     // Find stock by id (crypto.randomUUID) instead of _id
     const updatedStock = await stocks.findOneAndUpdate(
-      {_id:id,userId}, // Find by id field
+      {_id:id}, // Find by id field
       { 
         name: name,
         details: details,
@@ -57,9 +57,8 @@ export const editstocks = async (req, res) => {
 export const deletestock = async (req, res) => {
     const { id } = req.params;
     try {
-      const userId=req.user.id;
       console.log('Deleting stock with ID:', id);
-        const stockdelete = await stocks.findByIdAndDelete(id,userId); // Use id from URL params
+        const stockdelete = await stocks.findByIdAndDelete(id); // Use id from URL params
         
         if (!stockdelete) {
             return res.status(404).json({ msg: "Stock not found" });

@@ -17,6 +17,7 @@ const labourschema=new mongoose.Schema({
     address: String,
     role: String,
     image:String,
+    userid:String,
 })
  
 export const labourModel=mongoose.model('labours',labourschema);

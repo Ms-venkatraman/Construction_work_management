@@ -12,7 +12,7 @@ Router.post('/login',login)
 //adding Routes
 Router.use(authMiddleware);
 
-Router.post('/adddocument',adddocument)
+Router.post('/adddocument',authMiddleware,adddocument)
 
 Router.post('/maitanance', addmaintanance);
 Router.get('/maitanance',getmaintanance);
