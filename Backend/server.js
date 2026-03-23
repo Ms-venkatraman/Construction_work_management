@@ -15,4 +15,4 @@ app.use('/api/user',router)
 app.listen(PORT,()=>{
     console.log(`server running in http://localhost:${PORT}`)
 })
-// http://localhost:3000
+// http://localhost:8000
